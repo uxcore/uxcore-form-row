@@ -73,7 +73,15 @@ FormRow.defaultProps = {
     jsxprefixCls: "kuma-uxform-row"
 };
 FormRow.propTypes = {
+    /**
+     * @title 类名前缀
+     * @veIgnore
+     */
     jsxprefixCls: React.PropTypes.string,
+    /**
+     * @title CSS类名
+     * @veIgnore
+     */
     className: React.PropTypes.string
 };
 FormRow.displayName = "FormRow";
