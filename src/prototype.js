@@ -13,7 +13,10 @@ module.exports = Bundle.createPrototype({
     canDraging: true,
     isInline: false,
     isContainer: true,
-    canDropto: true,
-    conDroping: true,
+    canDropto: "Form",
+    canDroping: function(placement) {
+        let name = placement.getComponentName();
+        return /FormField/.test(name);
+    },
     configure: []
 });
