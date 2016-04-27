@@ -8,8 +8,8 @@
 
 let classnames = require('classnames');
 
-let Form = require('uxcore-form');
-let {InputFormField} = Form;
+let Form = require('uxcore-form/build/Form');
+let InputFormField = require('uxcore-form/build/FormField/InputFormField');
 let FormRow = require('../src');
 
 class Demo extends React.Component {
@@ -24,7 +24,7 @@ class Demo extends React.Component {
         return (
             <div>
                 <Form>
-                    <FormRow>
+                    <FormRow totalFlex={5}>
                         <InputFormField jsxname="test1" jsxlabel="表单1" />
                         <InputFormField jsxname="test2" jsxlabel="表单2" />
                     </FormRow>

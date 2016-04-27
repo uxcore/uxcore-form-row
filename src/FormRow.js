@@ -27,7 +27,7 @@ class FormRow extends React.Component {
                 }
                 if (/FormField/.test(displayName)) {
                     if (child.props.jsxshow) {
-                        me.totalFlex += child.props.jsxflex;
+                        me.totalFlex += child.props.jsxflex || 1;
                     }
                     elements.push(child);
                 }
@@ -41,6 +41,7 @@ class FormRow extends React.Component {
     render() {
         let me = this;
         let elements = me._processChild(me.props.children);
+        let totalFlex = me.props.totalFlex || me.totalFlex;
         return (
             <div className={classnames({
                 [me.props.jsxprefixCls]: true,
@@ -53,6 +54,7 @@ class FormRow extends React.Component {
                         jsxinstant: me.props.instantValidate,
                         value: value,
                         key: child.props.jsxname || index,
+                        totalFlex: totalFlex,
                         style: {width: child.props.jsxflex / me.totalFlex * 100 + '%'},
                         attachFormField: me.props.attachFormField,
                         detachFormField: me.props.detachFormField,
@@ -78,6 +80,10 @@ FormRow.propTypes = {
      * @veIgnore
      */
     jsxprefixCls: React.PropTypes.string,
+    /**
+     * @title 弹性比例总和
+     */
+    totalFlex: React.PropTypes.number,
     /**
      * @title CSS类名
      * @veIgnore

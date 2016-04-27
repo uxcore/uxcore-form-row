@@ -18,5 +18,13 @@ module.exports = Bundle.createPrototype({
         let name = placement.getComponentName();
         return /FormField/.test(name);
     },
-    configure: []
+    configure: [{
+            name: "totalFlex",
+            title: "弹性比例总和",
+            defaultValue: null,
+            required: false,
+            fieldStyle: "block",
+            fieldCollapsed: false,
+            setter: <NumberSetter />
+        }]
 });
