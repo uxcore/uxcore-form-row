@@ -49,7 +49,7 @@ class FormRow extends React.Component {
           return React.cloneElement(child, {
             mode: me.props.mode,
             jsxinstant: me.props.instantValidate,
-            jsxverticalAlign: me.props.verticalAlign,
+            jsxVerticalAlign: me.props.verticalAlign,
             value,
             key: child.props.jsxname || index,
             asyncValidate: me.props.asyncValidate,
