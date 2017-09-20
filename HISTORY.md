@@ -1,3 +1,7 @@
+## 0.1.5
+
+* `CHANGED` pass global vertical align prop
+
 ## 0.1.4
 
 * `CHANGED` pass `asyncValidate` from Form to FormField
