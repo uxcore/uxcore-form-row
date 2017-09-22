@@ -1,3 +1,7 @@
+## 0.1.6
+
+* `CHANGED` pass global size prop
+
 ## 0.1.5
 
 * `CHANGED` pass global vertical align prop

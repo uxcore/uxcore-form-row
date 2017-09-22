@@ -6,4 +6,4 @@
  * All rights reserved.
  */
 
-module.exports = require('./FormRow');
+export default from './FormRow';

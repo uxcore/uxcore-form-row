@@ -1,5 +1,5 @@
-const React = require('react');
-const classnames = require('classnames');
+import React from 'react';
+import classnames from 'classnames';
 
 class FormRow extends React.Component {
 
@@ -50,6 +50,7 @@ class FormRow extends React.Component {
             mode: me.props.mode,
             jsxinstant: me.props.instantValidate,
             jsxVerticalAlign: me.props.verticalAlign,
+            jsxsize: me.props.size,
             value,
             key: child.props.jsxname || index,
             asyncValidate: me.props.asyncValidate,
@@ -88,4 +89,4 @@ FormRow.propTypes = {
 };
 FormRow.displayName = 'FormRow';
 
-module.exports = FormRow;
+export default FormRow;
