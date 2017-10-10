@@ -9,7 +9,7 @@
 import React from 'react';
 import Form from 'uxcore-form/build/Form';
 import InputFormField from 'uxcore-input-form-field';
-import FormRow from '../src';
+import FormRow from '../src/FormRow';
 
 class Demo extends React.Component {
 

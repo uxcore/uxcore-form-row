@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 class FormRow extends React.Component {
@@ -76,16 +77,16 @@ FormRow.propTypes = {
    * @title 类名前缀
    * @veIgnore
    */
-  jsxprefixCls: React.PropTypes.string,
+  jsxprefixCls: PropTypes.string,
   /**
    * @title 弹性比例总和
    */
-  totalFlex: React.PropTypes.number,
+  totalFlex: PropTypes.number,
   /**
    * @title CSS类名
    * @veIgnore
    */
-  className: React.PropTypes.string,
+  className: PropTypes.string,
 };
 FormRow.displayName = 'FormRow';
 
