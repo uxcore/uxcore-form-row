@@ -1,3 +1,7 @@
+## 0.1.9
+
+* `CHANGED` add new prop `autoAdjustSpacing`
+
 ## 0.1.8
 
 * `CHANGED` fit React@15

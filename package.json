@@ -1,6 +1,6 @@
 {
  "name": "uxcore-form-row",
- "version": "0.1.8",
+ "version": "0.1.9",
  "description": "uxcore-form-row component for uxcore.",
  "repository": "https://github.com/uxcore/uxcore-form-row.git",
  "author": "eternalsky",
@@ -50,7 +50,8 @@
  "dependencies": {
   "classnames": "^2.1.2",
   "object-assign": "^4.0.0",
-  "prop-types": "15.x"
+  "prop-types": "15.x",
+  "uxcore-const": "^0.0.3"
  },
  "contributors": [],
  "license": "MIT"

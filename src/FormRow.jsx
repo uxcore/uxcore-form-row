@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import CONST from 'uxcore-const';
 
 class FormRow extends React.Component {
-
   constructor(props) {
     super(props);
     this.totalFlex = 0;
+    this.isAllViewMode = true;
   }
 
   processChild(children) {
@@ -22,6 +23,10 @@ class FormRow extends React.Component {
       // 如果是自己添加的 DOM 直接抛弃
       if (typeof child.type === 'function') {
         const displayName = child.type.displayName;
+        const mode = child.props.jsxmode || this.props.mode;
+        if (mode === CONST.MODE.EDIT) {
+          this.isAllViewMode = false;
+        }
         if (/FormField/.test(displayName)) {
           if (child.props.jsxshow) {
             me.totalFlex += child.props.jsxflex || 1;
@@ -30,7 +35,10 @@ class FormRow extends React.Component {
         }
       }
     });
-
+    // if autoAdjustSpacing is not active, isAllViewMode is not active
+    if (!this.props.autoAdjustSpacing) {
+      this.isAllViewMode = false;
+    }
     return elements;
   }
 
@@ -55,6 +63,7 @@ class FormRow extends React.Component {
             value,
             key: child.props.jsxname || index,
             asyncValidate: me.props.asyncValidate,
+            isAllViewMode: this.isAllViewMode,
             totalFlex,
             style: { width: `${(child.props.jsxflex / me.totalFlex) * 100}%` },
             attachFormField: me.props.attachFormField,
@@ -71,22 +80,11 @@ class FormRow extends React.Component {
 
 FormRow.defaultProps = {
   jsxprefixCls: 'kuma-uxform-row',
+  mode: CONST.MODE.EDIT,
 };
 FormRow.propTypes = {
-  /**
-   * @title 类名前缀
-   * @veIgnore
-   */
-  jsxprefixCls: PropTypes.string,
-  /**
-   * @title 弹性比例总和
-   */
-  totalFlex: PropTypes.number,
-  /**
-   * @title CSS类名
-   * @veIgnore
-   */
-  className: PropTypes.string,
+  mode: PropTypes.string,
+  autoAdjustSpacing: PropTypes.bool,
 };
 FormRow.displayName = 'FormRow';
 

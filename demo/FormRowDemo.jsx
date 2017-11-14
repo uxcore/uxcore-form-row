@@ -23,7 +23,7 @@ class Demo extends React.Component {
     return (
       <div>
         <Form>
-          <FormRow totalFlex={5}>
+          <FormRow>
             <InputFormField jsxname="test1" jsxlabel="表单1" />
             <InputFormField jsxname="test2" jsxlabel="表单2" />
           </FormRow>
