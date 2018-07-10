@@ -21,7 +21,7 @@ class FormRow extends React.Component {
     }
     React.Children.forEach(children, (child) => {
       // 如果是自己添加的 DOM 直接抛弃
-      if (typeof child.type === 'function') {
+      if (child && typeof child.type === 'function') {
         const displayName = child.type.displayName;
         const mode = child.props.jsxmode || this.props.mode;
         if (mode === CONST.MODE.EDIT) {

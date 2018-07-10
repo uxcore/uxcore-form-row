@@ -16,8 +16,16 @@ describe('FormRow', () => {
     const wrapper = mount(
       <FormRow data={{}} attachFormField={() => {}} handleDataChange={() => {}}>
         <FormField />
-      </FormRow>
+      </FormRow>,
     );
     expect(wrapper.find(FormField).length).not.to.be(0);
+  });
+  it('should support child is null', () => {
+    mount(
+      <FormRow data={{}} attachFormField={() => {}} handleDataChange={() => {}}>
+        <FormField />
+        {null}
+      </FormRow>,
+    );
   });
 });

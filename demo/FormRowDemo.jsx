@@ -26,6 +26,7 @@ class Demo extends React.Component {
           <FormRow>
             <InputFormField jsxname="test1" jsxlabel="表单1" />
             <InputFormField jsxname="test2" jsxlabel="表单2" />
+            {null}
           </FormRow>
         </Form>
       </div>

@@ -1,3 +1,7 @@
+## 0.1.11
+
+* `FIXED` child cannot be null
+
 ## 0.1.9
 
 * `CHANGED` add new prop `autoAdjustSpacing`
