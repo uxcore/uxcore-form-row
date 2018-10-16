@@ -12,6 +12,7 @@ class FormRow extends React.Component {
 
   processChild(children) {
     const me = this;
+    const { autoAdjustSpacing, mode } = this.props;
     me.totalFlex = 0;
     const length = React.Children.count(children);
     const elements = [];
@@ -22,9 +23,9 @@ class FormRow extends React.Component {
     React.Children.forEach(children, (child) => {
       // 如果是自己添加的 DOM 直接抛弃
       if (child && typeof child.type === 'function') {
-        const displayName = child.type.displayName;
-        const mode = child.props.jsxmode || this.props.mode;
-        if (mode === CONST.MODE.EDIT) {
+        const { displayName } = child.type;
+        const realMode = child.props.jsxmode || mode;
+        if (realMode === CONST.MODE.EDIT) {
           this.isAllViewMode = false;
         }
         if (/FormField/.test(displayName)) {
@@ -36,7 +37,7 @@ class FormRow extends React.Component {
       }
     });
     // if autoAdjustSpacing is not active, isAllViewMode is not active
-    if (!this.props.autoAdjustSpacing) {
+    if (!autoAdjustSpacing) {
       this.isAllViewMode = false;
     }
     return elements;
@@ -49,13 +50,13 @@ class FormRow extends React.Component {
     return (
       <div
         className={classnames({
-          [me.props.jsxprefixCls]: true,
+          [me.props.prefixCls]: true,
           [me.props.className]: !!me.props.className,
         })}
       >
         {!!elements && elements.map((child, index) => {
           const value = me.props.data[child.props.jsxname];
-          return React.cloneElement(child, {
+          const cloneProps = {
             mode: me.props.mode,
             jsxinstant: me.props.instantValidate,
             jsxVerticalAlign: me.props.verticalAlign,
@@ -71,7 +72,12 @@ class FormRow extends React.Component {
             handleDataChange: me.props.handleDataChange,
             getValues: me.props.getValues,
             resetValues: me.props.resetValues,
-          });
+          };
+          if (me.props.formPrefixCls) {
+            cloneProps.jsxprefixCls = `${me.props.formPrefixCls}-field`;
+            cloneProps.formPrefixCls = me.props.formPrefixCls;
+          }
+          return React.cloneElement(child, cloneProps);
         })}
       </div>
     );
@@ -79,10 +85,12 @@ class FormRow extends React.Component {
 }
 
 FormRow.defaultProps = {
-  jsxprefixCls: 'kuma-uxform-row',
+  prefixCls: 'kuma-uxform-row',
   mode: CONST.MODE.EDIT,
+  autoAdjustSpacing: false,
 };
 FormRow.propTypes = {
+  prefixCls: PropTypes.string,
   mode: PropTypes.string,
   autoAdjustSpacing: PropTypes.bool,
 };
