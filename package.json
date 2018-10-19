@@ -1,6 +1,6 @@
 {
   "name": "uxcore-form-row",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "uxcore-form-row component for uxcore.",
   "repository": "https://github.com/uxcore/uxcore-form-row.git",
   "author": "eternalsky",
@@ -40,8 +40,8 @@
     "react-dom": "16.x",
     "react-test-renderer": "16.x",
     "uxcore-form": "*",
-    "uxcore-form-field": "^0.2.34",
-    "uxcore-input-form-field": "^0.1.13",
+    "uxcore-form-field": "*",
+    "uxcore-input-form-field": "*",
     "uxcore-kuma": "*",
     "uxcore-tools": "^0.3.0",
     "babel-polyfill": "6.x",

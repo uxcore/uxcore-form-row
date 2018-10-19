@@ -49,7 +49,7 @@ class FormRow extends React.Component {
     const totalFlex = me.props.totalFlex || me.totalFlex;
     let prefixCls = me.props.prefixCls || 'kuma-uxform-row';
     if (me.props.formPrefixCls) {
-      prefixCls = `${me.props.prefixCls}-row`;
+      prefixCls = `${me.props.formPrefixCls}-row`;
     }
     return (
       <div
@@ -89,15 +89,17 @@ class FormRow extends React.Component {
 }
 
 FormRow.defaultProps = {
-  prefixCls: 'kuma-uxform-row',
+  prefixCls: '',
   mode: CONST.MODE.EDIT,
   autoAdjustSpacing: false,
 };
+
 FormRow.propTypes = {
   prefixCls: PropTypes.string,
   mode: PropTypes.string,
   autoAdjustSpacing: PropTypes.bool,
 };
+
 FormRow.displayName = 'FormRow';
 
 export default FormRow;

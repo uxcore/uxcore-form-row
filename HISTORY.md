@@ -1,4 +1,4 @@
-## 0.1.12
+## 0.1.13
 
 * `CHANGED` support generating prefixCls by formPrefixCls
 
