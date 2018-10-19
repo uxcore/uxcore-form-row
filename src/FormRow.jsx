@@ -47,10 +47,14 @@ class FormRow extends React.Component {
     const me = this;
     const elements = me.processChild(me.props.children);
     const totalFlex = me.props.totalFlex || me.totalFlex;
+    let prefixCls = me.props.prefixCls || 'kuma-uxform-row';
+    if (me.props.formPrefixCls) {
+      prefixCls = `${me.props.prefixCls}-row`;
+    }
     return (
       <div
         className={classnames({
-          [me.props.prefixCls]: true,
+          [prefixCls]: true,
           [me.props.className]: !!me.props.className,
         })}
       >

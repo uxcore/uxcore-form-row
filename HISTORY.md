@@ -1,3 +1,7 @@
+## 0.1.12
+
+* `CHANGED` support generating prefixCls by formPrefixCls
+
 ## 0.1.11
 
 * `FIXED` child cannot be null
